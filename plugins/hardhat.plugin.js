@@ -68,6 +68,7 @@ subtask(TASK_COMPILE_SOLIDITY_GET_COMPILATION_JOB_FOR_FILE).setAction(async (_, 
         yulDetails: {
           stackAllocation: true,
         },
+        orderLiterals: true
       }
     }
   }
