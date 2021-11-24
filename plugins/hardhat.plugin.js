@@ -64,11 +64,14 @@ subtask(TASK_COMPILE_SOLIDITY_GET_COMPILATION_JOB_FOR_FILE).setAction(async (_, 
     // Experimental because not sure this works as expected across versions....
     if (configureYulOptimizer) {
       settings.optimizer.details = {
-        yul: true,
-        yulDetails: {
-          stackAllocation: true,
-        },
-        orderLiterals: true
+        peephole: false,
+        inliner: false,
+        jumpdestRemover: false,
+        orderLiterals: true,  // <-- TRUE! Stack too deep when false
+        deduplicate: false,
+        cse: false,
+        constantOptimizer: false,
+        yul: false
       }
     }
   }
